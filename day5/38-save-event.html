@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1" onclick="onBtn1Click()">Button 1</button>
+    <button id="btn2">Button 2</button>
+    <button id="btn3">Button 3</button>
+    <a href="https://ofppt.ma" id="link">Lien</a>
+    <script>
+     
+        // Méthode 1
+        function onBtn1Click() {
+            console.log('Btn1 Clicked')
+        }
+
+        // Méthode 2:
+        const btn2 = document.querySelector('#btn2');
+        btn2.onclick = function (event) {
+            console.log('Btn2 Clicked');
+            console.log(this)
+            console.log(event)
+            console.log(event.target)
+        }
+
+        // Méthode3:
+        const btn3 = document.querySelector('#btn3');
+        btn3.addEventListener('click', (event) => {
+            console.log('Btn3 clicked');
+            console.log(event)
+        })
+        btn3.addEventListener('click', (event) => {
+            console.log('Btn3 clicked 2');
+            console.log(event)
+        })
+
+         
+        const link = document.querySelector('#link');
+        link.addEventListener('click', (e) => {
+            e.preventDefault()
+            console.log('Lien Clické')
+        })
+
+    </script>
+</body>
+
+</html>

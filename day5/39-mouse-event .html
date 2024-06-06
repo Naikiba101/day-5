@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .obj {
+            margin: 100px;
+            width: 500px;
+            height: 500px;
+            background-color: gray;
+            transition: all 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="obj"></div>
+
+
+    <script>
+        /*
+        click	    A user clicks on an element
+        contextmenu	A user right-clicks on an element
+        dblclick	A user double-clicks on an element
+        mousedown	A mouse button is pressed over an element
+        mouseup	    A mouse button is released over an element
+        mouseenter	The mouse pointer moves into an element
+        mouseleave	The mouse pointer moves out of an element
+        mousemove	The mouse pointer moves over an element
+        mouseout	The mouse pointer moves out of an element
+        mouseover	The mouse pointer moves onto an element
+        */
+        const obj = document.querySelector('.obj');
+        obj.addEventListener('click', (event) => {
+            // récupérer les coordonnées absolues de la souris
+            let x1 = event.clientX;
+            let y1 = event.clientY;
+            console.log(x1, y1)
+
+            // Récupérer les coodonnées relatives de la souris dans la div:
+            let x2 = event.offsetX;
+            let y2 = event.offsetY;
+            console.log(x2, y2)
+
+            // autre propriétés
+            console.log(event.ctrlKey); // est ce que la touche CTRL est appuyée
+            console.log(event.altKey)// est ce que la touche ALT est appuyée
+            console.log(event.shiftKey)// est ce que la touche SHIFT est appuyée
+        })
+    </script>
+</body>
+
+</html>

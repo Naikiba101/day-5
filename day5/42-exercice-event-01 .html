@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      background-color: gray;
+      margin: auto;
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box"></div>
+  </div>
+
+  <!-- 
+      Développer un script javascript qui à la div ".box" de suivre le mouvement
+      de la souris uniquement dans le "container"
+      il faut prendre en considération que le ".box" ne déborde pas du box
+     -->
+
+  <script>
+    const container = document.querySelector('.container');
+    const box = document.querySelector('.box');
+
+    container.addEventListener('mousemove', (e) => {
+      // 1- récupérer x et y
+      let x = e.clientX - container.offsetLeft;
+      let y = e.clientY - container.offsetTop;
+
+      // 2- calculer left et top
+      let left = x - 25;
+      let top = y - 25;
+
+      left = Math.max(left, 0); left = Math.min(left, 450);
+      top = Math.max(top, 0); top = Math.min(top, 450);
+
+      // 3- appliquer left/top à box
+      box.style.left = left + "px";
+      box.style.top = top + "px";
+
+    })
+  </script>
+
+</body>
+
+</html>
